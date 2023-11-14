@@ -1,0 +1,19 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./src/index.ts",
+  "private": true,
+  "scripts": {
+    "build": "tsc --build",
+    "build:prod": "npm run build && npm run copy-build",
+    "copy-build": "scp -r dist ../build/common && scp package.json ../build/common && scp ../package-lock.json ../build/common",
+    "clean": "tsc --build --clean && rm -rf ./node_modules ./dist",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

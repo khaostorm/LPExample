@@ -1,0 +1,43 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "private": true,
+  "scripts": {
+    "build": "tsc --build tsconfig.server.json && npm run copy-index",
+    "build:prod": "npm run build && npm run build:ui && npm run copy-build",
+    "build:ui": "webpack --config webpack.prod.js",
+    "clean": "tsc --build --clean tsconfig.server.json && rm -rf ./node_modules ./dist",
+    "copy-build": "scp -r dist ../build/site && scp package.json ../build/site && scp ../package-lock.json ../build/site",
+    "copy-index": "mkdir -p dist/views/ && scp src/views/index.html dist/views/",
+    "start": "NODE_ENV=development node dist/app.js",
+    "start:prod": "NODE_ENV=production node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "common": "file:../common",
+    "express": "^4.17.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "sass": "^1.45.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-middleware": "^5.3.0",
+    "webpack-merge": "^5.8.0"
+  }
+}

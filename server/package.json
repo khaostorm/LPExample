@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc --build",
+    "build:prod": "npm run build && npm run copy-build",
+    "clean": "tsc --build --clean && rm -rf ./node_modules ./dist",
+    "copy-build": "scp -r dist ../build/server && scp package.json ../build/server && scp ../package-lock.json ../build/server",
+    "start": "NODE_ENV=development node dist/app.js",
+    "start:prod": "NODE_ENV=prod node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Caleb McWilliams",
+  "license": "MIT",
+  "dependencies": {
+    "common": "file:../common",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.34.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.16"
+  }
+}

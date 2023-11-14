@@ -1,0 +1,40 @@
+{
+  "name": "reactexpresstemplate",
+  "version": "1.0.0",
+  "description": "Template for a React Express Website",
+  "scripts": {
+    "build": "npm install && lerna run build",
+    "build:prod": "npm install && mkdir -p build && lerna run build:prod && npm run install:prod",
+    "clean": "lerna run clean && rm -rf node_modules build",
+    "install": "lerna run install",
+    "install:prod": "./prod_install.sh",
+    "prepare": "husky install",
+    "start": "lerna run start",
+    "start:prod": "lerna run start:prod",
+    "test": "lerna run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaostorm/ReactExpressTemplate.git"
+  },
+  "author": "Caleb McWilliams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khaostorm/ReactExpressTemplate/issues"
+  },
+  "homepage": "https://github.com/khaostorm/ReactExpressTemplate#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^20.8.9",
+    "husky": "^7.0.4",
+    "lerna": "^7.4.1",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.2",
+    "typescript": "^4.5.4"
+  },
+  "workspaces": [
+    "server",
+    "site",
+    "common"
+  ]
+}

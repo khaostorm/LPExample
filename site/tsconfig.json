@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist/views/",
+    "rootDir": "./src/views/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es2020",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "composite": true,
+    "moduleResolution": "node"
+  },
+  "include": ["./src/views/"],
+  "references": [{ "path": "../common" }]
+}
